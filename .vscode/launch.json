@@ -1,0 +1,14 @@
+{
+    "version": "1.0.0",
+    "configurations": [
+        {
+            "name": "game-debug",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "start"],
+            "outFiles": ["${workspaceRoot}/src/**/*.js"]
+        }
+    ]
+}

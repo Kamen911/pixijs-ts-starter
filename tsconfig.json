@@ -1,11 +1,19 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": true,
-    "moduleResolution": "node"
-  }
+    "compilerOptions": {
+        "outDir": "./dist",
+        "noImplicitAny": true,
+        "typeRoots": ["./node_modules/@types"],
+        "module": "es6",
+        "target": "es5",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "sourceMap": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }
