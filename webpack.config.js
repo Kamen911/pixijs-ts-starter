@@ -1,17 +1,35 @@
 const path = require("path");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: "./src/Game.ts",
-  mode: "development",
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
+    mode: "production",
+    entry: "./src/index.ts",
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: "ts-loader",
+                exclude: /node_modules/
+            }
+        ]
+    },
+    resolve: {
+        extensions: [".tsx", ".ts", ".js"]
+    },
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "./"
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./templates/index.html"
+        }),
+        new CopyWebpackPlugin({
+            patterns: [{ from: "./templates/style.css", to: "style.css" }]
+        })
     ],
   },
   devServer: {
