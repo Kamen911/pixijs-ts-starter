@@ -95,8 +95,8 @@ export class Game {
         const card = new Card(this.getRandomCardValue(), this.getRandomSuit());
         card.render();
         this.dealerCards.push(card);
-        this.dealerCardsContainer.addChild(card.container); // Adding cards to Dealer
-        // this.playerCardsContainer.addChild(card.container); // Adding cards to Player
+        this.dealerCardsContainer.addChild(card.container); // cards to Dealer
+        // this.playerCardsContainer.addChild(card.container); // cards to Player
 
         const startX = Game.CANVAS_WIDTH - 100; // Start top-right corner
         const startY = -100;
