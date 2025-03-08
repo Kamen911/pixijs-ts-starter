@@ -1,0 +1,9 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.prettierPath": "./node_modules/prettier/index.cjs"
+}
