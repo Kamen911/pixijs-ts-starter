@@ -1,0 +1,26 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint", "prettier"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+    ],
+    "rules": {
+        "prettier/prettier": ["error"],
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "ignoreRestSiblings": true,
+                "argsIgnorePattern": "^runtime|request$",
+                "varsIgnorePattern": "^runtime|request$",
+            },
+        ],
+        "max-params": ["error", { "max": 5 }],
+        "max-depth": ["error", { "max": 2 }],
+        "max-lines-per-function": ["error", { "max": 40 }],
+        "@typescript-eslint/typedef": ["warn", { "parameter": true }],
+    },
+}

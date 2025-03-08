@@ -1,0 +1,7 @@
+bin
+dist
+node_modules
+.vscode
+**/*.spec.ts
+**/*.test.ts
+**/*.mock.ts

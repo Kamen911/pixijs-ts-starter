@@ -1,0 +1,11 @@
+{
+    "formatOnSave": true,
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "printWidth": 140,
+    "singleQuote": false,
+    "semi": true,
+    "tabWidth": 4,
+    "trailingComma": "none",
+    "no-multiple-empty-lines": ["error", { "max": 2 }]
+}
