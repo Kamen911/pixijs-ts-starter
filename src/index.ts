@@ -1,5 +1,6 @@
-import { Game } from "./Game";
+import { Game } from "./renderers";
 
 window.addEventListener("DOMContentLoaded", () => {
-    new Game();
+    const game = new Game();
+    game.render();
 });

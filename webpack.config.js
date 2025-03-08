@@ -10,30 +10,30 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 use: "ts-loader",
-                exclude: /node_modules/,
-            },
-        ],
+                exclude: /node_modules/
+            }
+        ]
     },
     resolve: {
-        extensions: [".tsx", ".ts", ".js"],
+        extensions: [".tsx", ".ts", ".js"]
     },
     output: {
         filename: "bundle.js",
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "dist")
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./templates/index.html",
+            template: "./templates/index.html"
         }),
         new CopyWebpackPlugin({
-            patterns: [{ from: "./templates/style.css", to: "style.css" }],
-        }),
+            patterns: [{ from: "./templates/style.css", to: "style.css" }]
+        })
     ],
     devServer: {
         static: {
-            directory: path.join(__dirname, "dist"),
+            directory: path.join(__dirname, "dist")
         },
         compress: true,
-        port: 8000,
-    },
+        port: 8000
+    }
 };
