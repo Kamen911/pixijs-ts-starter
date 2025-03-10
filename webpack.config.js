@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    mode: "production",
+    mode: "development",
     entry: "./src/index.ts",
     module: {
         rules: [
@@ -12,6 +12,13 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: "ts-loader",
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: "asset/resource",
+                generator: {
+                    filename: "assets/images/[name][ext]"
+                }
             }
         ]
     },
@@ -28,7 +35,10 @@ module.exports = {
             template: "./templates/index.html"
         }),
         new CopyWebpackPlugin({
-            patterns: [{ from: "./templates/style.css", to: "style.css" }]
+            patterns: [
+                { from: "./templates/style.css", to: "style.css" },
+                { from: "./src/assets", to: "assets" }
+            ]
         })
     ],
     devServer: {
@@ -36,6 +46,9 @@ module.exports = {
             directory: path.join(__dirname, "dist")
         },
         compress: true,
-        port: 8000
+        port: 8000,
+        devMiddleware: {
+            publicPath: "/"
+        }
     }
 };

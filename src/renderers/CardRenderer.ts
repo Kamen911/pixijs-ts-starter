@@ -11,7 +11,6 @@ export class Card {
 
     private static readonly CORNER_FONT_SIZE = 25;
     private static readonly CENTER_FONT_SIZE = 52;
-    private static readonly PERSPECTIVE_SKEW = 0.7;
 
     constructor(value: string, suit: CardSuit) {
         this.value = value;
@@ -27,12 +26,12 @@ export class Card {
 
         // Card corners
         this.container.addChild(this.createCornerText(5, 5)); // Top-left
-        this.container.addChild(this.createCornerText(95, 150, Math.PI)); // Bottom-right
+        this.container.addChild(this.createCornerText(95, 185, Math.PI)); // Bottom-right
 
         // Card center symbol
         const centerSymbol = this.renderCardText(this.suitSymbol, Card.CENTER_FONT_SIZE);
         centerSymbol.anchor.set(0.5);
-        centerSymbol.position.set(50, 75);
+        centerSymbol.position.set(50, 90);
         this.container.addChild(centerSymbol);
 
         this.container.pivot.set(40, 60);
@@ -53,7 +52,7 @@ export class Card {
         this.background.clear();
         this.background.beginFill(0xffffff);
         this.background.lineStyle(2, 0x000000);
-        this.background.drawRoundedRect(0, 0, 100, 150, 10);
+        this.background.drawRoundedRect(0, 0, 100, 190, 10);
         this.background.endFill();
     }
 
@@ -66,6 +65,6 @@ export class Card {
     }
 
     private renderPerspectiveEffect(): void {
-        this.container.transform.setFromMatrix(new Matrix(1, 0, 0, Card.PERSPECTIVE_SKEW, 0, 1));
+        this.container.transform.setFromMatrix(new Matrix(1, 0, 0, 0.7, 0, 1));
     }
 }
