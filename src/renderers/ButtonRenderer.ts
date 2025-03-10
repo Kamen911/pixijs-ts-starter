@@ -1,7 +1,7 @@
 import { Graphics, Container, Text, TextStyle } from "pixi.js";
 import gsap from "gsap";
 
-export class ButtonRenderer {
+export class Button {
     public container: Container;
     private background: Graphics;
     private text: Text;
