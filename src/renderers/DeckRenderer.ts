@@ -2,8 +2,7 @@ import { Container, Sprite, Texture } from "pixi.js";
 import cardBackImage from "../assets/images/card-back.png";
 
 export class Deck {
-    public container: Container; // Now directly accessible
-
+    public container: Container;
     private static readonly STACK_SIZE = 10;
     private static readonly OFFSET_X = 5;
     private static readonly OFFSET_Y = 1.5;

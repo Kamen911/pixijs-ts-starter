@@ -5,6 +5,7 @@ import { CardSuit } from "../types";
 import { getRandom } from "../utils";
 import config from "../../config/game-config.json";
 import blackjackTableImage from "../assets/images/black-jack-table.png";
+import { initDevtools } from "@pixi/devtools";
 
 export class Game {
     private static instance: Game | null = null;
@@ -39,6 +40,7 @@ export class Game {
             background: Game.BACKGROUND_COLOR,
             antialias: true
         });
+        initDevtools({ app: this.app });
 
         const containerElement = document.querySelector(".container") as HTMLDivElement;
         containerElement.appendChild(this.app.view);
@@ -72,15 +74,15 @@ export class Game {
 
         if (this.isDeckFull()) this.dealButton.setDisabled(true);
 
-        this.startDealingAnimation();
+        this.animateDeckDeal();
         this.animateDeal(card);
     }
 
-    private startDealingAnimation(): void {
+    private animateDeckDeal(): void {
         this.isAnimating = true;
         this.dealButton.setDisabled(true);
 
-        gsap.to(this.deck.container, {
+        gsap.timeline().to(this.deck.container, {
             x: this.deck.container.x - 5,
             duration: 0.1,
             yoyo: true,
@@ -117,7 +119,7 @@ export class Game {
         const finalX = col * cardSpacingX + rowRightOffset;
         const finalY = row * cardSpacingY - upwardOffset;
 
-        gsap.to(card.container.position, {
+        gsap.timeline().to(card.container.position, {
             x: finalX,
             y: finalY,
             duration: 0.5,
@@ -143,7 +145,7 @@ export class Game {
     }
 
     private buttonAnimation(target: ObservablePoint): void {
-        gsap.to(target, {
+        gsap.timeline().to(target, {
             x: 0.9,
             y: 0.9,
             duration: 0.1,

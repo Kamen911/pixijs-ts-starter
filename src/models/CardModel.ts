@@ -11,4 +11,11 @@ export class CardModel {
 
         return cardSymbol[suit];
     }
+
+    public static suitColors: Record<CardSuit, number> = {
+        [CardSuit.Hearts]: 0xff0000,
+        [CardSuit.Diamonds]: 0xff0000,
+        [CardSuit.Spades]: 0x000000,
+        [CardSuit.Clubs]: 0x000000
+    };
 }

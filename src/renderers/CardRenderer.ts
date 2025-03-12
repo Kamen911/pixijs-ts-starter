@@ -16,7 +16,8 @@ export class Card {
         this.value = value;
         this.container = new Container();
         this.suitSymbol = CardModel.getSuitSymbol(suit);
-        this.color = suit === CardSuit.Hearts || suit === CardSuit.Diamonds ? 0xff0000 : 0x000000;
+        this.color = CardModel.suitColors[suit];
+
         this.background = new Graphics();
     }
 
